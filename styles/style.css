@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer:ital@0;1&display=swap');
+
+/****************************************/
+/*RESET*/
+/****************************************/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/****************************************/
+/*GLOBAL*/
+/****************************************/
+body{
+    background: #fff;
+    font-size: 16px;
+    font-family: 'IM Fell Great Primer', sans-serif;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.column{
+    flex-direction: column;
+}
+
+.italic{
+    font-style: italic;
+    font-size: 12px;
+}
+
+/****************************************/
+/*ACCUEIL*/
+/****************************************/
+.accueil{
+    position: sticky;
+    top: 0;
+    z-index: -1;
+    padding : 30px 0;
+}
+
+.logo{
+    width: 30px;
+}
+
+.central_text, .bottom_text {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.central_text{
+    gap: 2.5px;
+
+    h1{
+        font-size: 32px;
+    }
+    h2{
+        font-size: 20px;
+    }
+    p{
+        font-size: 16px;
+    }
+}
+
+.stick{
+    width: 1px;
+    height: 40px;
+    background-color: #000;
+}
+
+.point{
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    margin: 5px 0 12px 0;
+    background-color: #000;
+}
+
+/****************************************/
+/*COVER*/
+/****************************************/
+.cover{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    h2{
+        font-size: 32px;
+        width: 422px;
+    }
+    p{
+        font-size: 18px;
+        text-align: right;
+        width: 422px;
+    }
+    .cropped_cover{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        width: 422px;
+        height: 553px;
+        img{
+            position: relative;
+            width: 100vw;
+            /*z-index: 2;*/
+        }
+    }
+}
+
+/****************************************/
+/*TEXTS*/
+/****************************************/
+.text{
+    justify-content: center;
+}
