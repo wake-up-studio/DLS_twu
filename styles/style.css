@@ -16,6 +16,18 @@ body{
     background: #fff;
     font-size: 16px;
     font-family: 'IM Fell Great Primer', sans-serif;
+    overflow-x: hidden;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
 }
 
 .container{
@@ -41,12 +53,17 @@ body{
 .accueil{
     position: sticky;
     top: 0;
-    z-index: -1;
     padding : 30px 0;
+    background: url("assets/Header-opti.webm");
 }
 
 .logo{
     width: 30px;
+    mix-blend-mode: difference;
+}
+
+.isolate{
+    isolation: isolate;
 }
 
 .central_text, .bottom_text {
@@ -60,16 +77,31 @@ body{
 
 .central_text{
     gap: 2.5px;
+    transition: 0.2s;
+}
 
-    h1{
-        font-size: 32px;
-    }
-    h2{
-        font-size: 20px;
-    }
-    p{
-        font-size: 16px;
-    }
+.central_text h1{
+    font-size: 32px;
+}
+.central_text h2{
+    font-size: 20px;
+}
+.central_text p{
+    font-size: 16px;
+}
+
+.video{
+    width: 100%;
+    z-index: -1;
+}
+
+#video{
+    position: fixed;
+    width: 120%;
+    top: -40px;
+    left: -40px;
+    z-index: 0;
+    transition: 0.1s;
 }
 
 .stick{
@@ -90,38 +122,246 @@ body{
 /*COVER*/
 /****************************************/
 .cover{
-    overflow: hidden;
+    /*overflow: hidden;*/
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
-    h2{
-        font-size: 32px;
-        width: 422px;
-    }
-    p{
-        font-size: 18px;
-        text-align: right;
-        width: 422px;
-    }
-    .cropped_cover{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        width: 422px;
-        height: 553px;
-        img{
-            position: relative;
-            width: 100vw;
-            /*z-index: 2;*/
-        }
-    }
+}
+
+.cover h2{
+    font-size: 32px;
+    width: 422px;
+}
+.cover p{
+    font-size: 18px;
+    text-align: right;
+    width: 422px;
+}
+.cover .cropped_cover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 422px;
+    height: 553px;
+}
+
+.cropped_cover img{
+    position: relative;
+    width: 100vw;
 }
 
 /****************************************/
-/*TEXTS*/
+/*CHAPITRE 1 GRID*/
 /****************************************/
-.text{
+.chapitre1{
+    width: fit-content;
+    height: 100vh;
+    padding: 80px;
+    overflow: hidden;
+}
+
+.grid_chapitre1{
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+        "chap1 adieux . par2 media3 media4 par4 par6 gap par8 media6 par9 . gap2"
+        ". . par1 par2 media3 media4 par4 par6 gap par8 media6 par9 phrase2 gap2"
+        ". . par1 par2 par3 media4 par4 par6 gap par8 media6 par9 phrase2 gap2"
+        ". . par1 par2 par3 media5 par5 phrase1 gap medias1 medias1 medias1 medias1 gap2"
+        ". . media1 . par3 media5 par5 phrase1 gap medias1 medias1 medias1 medias1 gap2"
+        ". . media1 media2 par3 media5 par5 par7 gap medias1 medias1 medias1 medias1 gap2"
+        ". . media1 media2 par3 media5 par5 par7 gap medias1 medias1 medias1 medias1 gap2";
+    grid-template-rows : repeat(7, 1fr);
+    grid-template-columns : 100px 100px repeat(6, 720px) 80px repeat(4, 600px) 200px;
+    gap: 20px 60px;
+}
+
+.par1, .par2, .par3,
+.par4, .par5, .par6,
+.par7, .par8, .par9, .media1,
+.media2, .media3, .media4, .media5,
+.media6, .phrase1, .phrase2, .medias1,
+.adieux, .chap1{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.par1_content, .par2_content, .par3_content, .par4_content,
+.par5_content, .par6_content, .par7_content, .par8_content,
+.par9_content{
+    width: 471px;
+    line-height: 125%;
+    text-align: justify;
+    font-size: 18px;
+}
+
+.media1_content, .media2_content, .media3_content,
+.media4_content, .media5_content, .media_content6{
+    object-fit: cover;
+    width: 100%;
+}
+
+.chap1_content{
+    font-size: 32px;
+    min-width: 150px;
+}
+
+.adieux_content{
+    font-size: 26px;
+    min-width: 300px;
+}
+
+.phrase1, .phrase2{
+    font-size: 48px;
+}
+
+.chap1{
+    grid-area: chap1;
+}
+
+.adieux{
+    grid-area: adieux;
+    align-items: flex-end;
+}
+
+.par1{
+    grid-area: par1;
+    flex-direction: column;
     justify-content: center;
+}
+
+.media1{
+    grid-area: media1;
+}
+
+.par2{
+    grid-area: par2;
+}
+
+.media2{
+    grid-area: media2;
+    justify-content: end;
+}
+
+.media2_content{
+    width: 50%;
+    margin-right: 50px;
+}
+
+.media3{
+    grid-area: media3;
+}
+
+.media3_content{
+    width: 50%;
+}
+
+.par3{
+    grid-area: par3;
+    align-items: center;
+    justify-content: center;
+}
+
+.media4{
+    grid-area: media4;
+}
+
+.media4_content{
+    width: 70%;
+}
+
+.media5{
+    grid-area: media5;
+}
+
+.par4{
+    grid-area: par4;
+    justify-content: start;
+}
+
+.par4_content{
+    position: relative;
+    right: 150px;
+}
+
+.par5{
+    grid-area: par5;
+    justify-content: center;
+}
+
+.gap{
+    grid-area: gap;
+}
+
+.par6{
+    grid-area: par6;
+}
+
+.par6_content{
+    position: relative;
+    right: 80px;
+}
+
+.phrase1{
+    grid-area: phrase1;
+    align-items: center;
+    justify-content: center;
+}
+
+.par7{
+    grid-area: par7;
+    align-items: center;
+    justify-content: end;
+    position: relative;
+    left: 80px;
+}
+
+.par8{
+    grid-area: par8;
+    position: relative;
+    top: 30px;
+}
+
+.media6{
+    grid-area: media6;
+}
+
+.media6_content{
+    height: 90%;
+}
+
+.par9{
+    grid-area: par9;
+}
+
+.phrase2{
+    grid-area: phrase2;
+    align-items: center;
+    justify-content: start;
+    position: relative;
+    right: 120px;
+    top: 10px;
+}
+
+.medias1{
+    grid-area: medias1;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.gap2{
+    grid-area: gap2;
+}
+
+/*************************************/
+.salut{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
